@@ -11,18 +11,19 @@ public class GameManager : MonoBehaviour
     private int score;
 
 
+
     // Start is called before the first frame update
     void Start()
     {
         StartCoroutine(SpawnTarget());
         score = 0;
-        scoreText.text = "Score" + score;
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     IEnumerator SpawnTarget()
@@ -33,6 +34,13 @@ public class GameManager : MonoBehaviour
             int index = Random.Range(0, targets.Count);
             Instantiate(targets[index]);
         }
-       
+
+    }
+
+    public void UpdateScore(int scoreToAdd)
+    {
+        score += scoreToAdd;
+        scoreText.text = "Score" + score;
     }
 }
+
